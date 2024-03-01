@@ -7,8 +7,8 @@ const int PIN_LED_YELLOW = 7; // The Number of the yellow LED pin.
 const int PIN_BUTTON_1 = 8;   // The number of the button 1 (KEY1) pin.
 const int PIN_BUTTON_2 = 9;   // The number of the button 2 (KEY2) pin.
 
-void blinkLed(int LED_PIN) {
-  for (int i = 0; i < 3; i++) {
+void blinkLed(int LED_PIN, int x) {
+  for (int i = 0; i < x; i++) {
     digitalWrite(LED_PIN, HIGH);
     delay(250);
     digitalWrite(LED_PIN, LOW);
@@ -19,6 +19,7 @@ void blinkLed(int LED_PIN) {
 void setup() {
   pinMode(PIN_LED_YELLOW, OUTPUT);
   pinMode(PIN_BUTTON_1, INPUT_PULLUP);
+  pinMode(PIN_BUTTON_2, INPUT_PULLUP);
 }
 
 void loop() {
@@ -26,7 +27,11 @@ void loop() {
   int buttonTwoState = digitalRead(PIN_BUTTON_2);
 
   if (buttonOneState == LOW) {
-    blinkLed(PIN_LED_YELLOW);
+    blinkLed(PIN_LED_YELLOW, 3);
+  }
+
+  if (buttonTwoState == LOW) {
+    blinkLed(PIN_LED_YELLOW, 5);
   }
 }
 
