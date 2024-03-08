@@ -33,11 +33,13 @@ void readButton(int BUTTON_PIN, int LED_PIN, int x) {
 
 void setup() {
   pinMode(PIN_LED_YELLOW, OUTPUT);
+  pinMode(PIN_LED_GREEN, OUTPUT);
   pinMode(PIN_BUTTON_1, INPUT_PULLUP);
   pinMode(PIN_BUTTON_2, INPUT_PULLUP);
 }
 
 void loop() {
   readButton(PIN_BUTTON_1, PIN_LED_YELLOW, 5);
+  readButton(PIN_BUTTON_2, PIN_LED_GREEN, 3);
 }
 
